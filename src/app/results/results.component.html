@@ -1,0 +1,9 @@
+<div class='detail-container' *ngIf="scores.player1"> 
+                <user-detail [userData]="data.player1.data" [score]="scores.player1"> </user-detail> 
+                <user-detail [userData]="data.player2.data" [score]="scores.player2"> </user-detail> 
+                <div class="col-sm-8 col-sm-offset-2 text-center btn-container">
+                <button type="button" (click)="goToSel()" class="btn btn-lg btn-success">
+                Start Again!
+                </button>
+                </div>
+</div>
