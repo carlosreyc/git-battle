@@ -1,0 +1,35 @@
+                <div class='jumbotron col-sm-6 col-sm-offset-3 text-center transparentBg' >
+                <h1>Players</h1>
+                <div class='col-sm-12'>
+                    <form (ngSubmit)="goToResults()" >
+                        <div class='form-group'>
+                            <input
+                            class='form-control'
+                            placeholder='Github Username'
+                            
+                            [(ngModel)] = username1
+                            name="username1"
+                            type='text'/>
+                        </div>
+                        <div class='form-group'>
+                            <input
+                            class='form-control'
+                            placeholder='Github Username'
+                            
+                            [(ngModel)] = username2
+                            name="username2"
+                            type='text'/>
+                        </div>                        
+                        <div class='form-group col-sm-4 col-sm-offset-4'>
+                            <button
+                            class='btn btn-block btn-success'
+                            
+                            type='submit'>
+                                Continue
+                                </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+<router-outlet></router-outlet>
+

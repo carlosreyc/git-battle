@@ -1,0 +1,15 @@
+<div class="col-sm-6 container" >
+   <p class="lead">  </p>
+      <div>
+          <li class="list-group-item text-center"><h3>Score: {{score}}</h3></li>
+          <li class="list-group-item"> <img src={{userData.avatar_url}} class="img-rounded img-responsive center-block"/></li>
+          <li *ngIf="userData.name"  class="list-group-item text-center">Name: {{userData.name}}</li>
+          <li class="list-group-item text-center">Username: {{userData.login}}</li>
+          <li *ngIf="userData.location"  class="list-group-item text-center">Location: {{userData.location}}</li>
+          <li *ngIf="userData.company" class="list-group-item text-center">Company: {{userData.company}}</li>
+          <li class="list-group-item text-center">Followers: {{userData.followers}}</li>
+          <li class="list-group-item text-center">Following: {{userData.following}}</li>
+          <li class="list-group-item text-center">Public Repos: {{userData.public_repos}}</li>
+          <li *ngIf="userData.blog" class="list-group-item text-center">Blog: <a href={{userData.blog}}> {{userData.blog}}</a></li>
+      </div>
+</div>
