@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute  } from '@angular/router';
 import { AuthenticationService } from '../../_services/auth.service';
+import { SingUp } from '../sing-up/singup.component';
 
 @Component({
   selector: 'app-login',
@@ -33,5 +34,9 @@ user: any = {};
                 data => {
                     this.router.navigate(['/players']);
                 });
+    }
+
+    goToSingUp() {
+        this.router.navigate(['/singup'])
     }
 }

@@ -15,32 +15,51 @@ import { MockBackend, MockConnection } from '@angular/http/testing';
  
                 
                 if (connection.request.url.endsWith('/api/authenticate') && connection.request.method === RequestMethod.Post) {
-                    
-                    let params = JSON.parse(connection.request.getBody());
-                    console.log(params)
-                    
-                    
+                    
+                    let params = JSON.parse(connection.request.getBody());
+
+                    
+                    let filteredUsers = users.filter(user => {
+                        return user.username === params.username && user.password === params.password;
+                    });
+
+                    if (filteredUsers.length) {
+                        
+                        let user = filteredUsers[0];
+                        connection.mockRespond(new Response(new ResponseOptions({
+                            status: 200,
+                            body: {
+                                id: user.id,
+                                username: user.username,
+                                firstName: user.firstName,
+                                lastName: user.lastName,
+                                token: 'fake-jwt-token'
+                            }
+                        })));
+                    } else {
+                        
+                        connection.mockError(new Error('Username or password is incorrect'));
+                    }
+                }
  
-                    if (params.username === 'admin') {
-                        
-                        
-                        connection.mockRespond(new Response(new ResponseOptions({
-                            status: 200,
-                            body: {
-                                id: 0,
-                                username: params.username,
-                                firstName: 'Carlos',
-                                lastName: 'Reyes',
-                                token: 'fake-jwt-token'
-                            }
-                        })));
-                    } else {
-                        
-                        connection.mockError(new Error('Username or password is incorrect'));
-                    }
-                }
- 
-                
+                if (connection.request.url.endsWith('/api/users') && connection.request.method === RequestMethod.Post) {
+                    
+                    let newUser = JSON.parse(connection.request.getBody());
+
+                    
+                    let duplicateUser = users.filter(user => { return user.username === newUser.username; }).length;
+                    if (duplicateUser) {
+                        return connection.mockError(new Error('Username "' + newUser.username + '" is already taken'));
+                    }
+
+                    
+                    newUser.id = users.length + 1;
+                    users.push(newUser);
+                    localStorage.setItem('users', JSON.stringify(users));
+
+                    
+                    connection.mockRespond(new Response(new ResponseOptions({ status: 200 })));
+                }
  
                
  

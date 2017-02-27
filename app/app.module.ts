@@ -18,7 +18,7 @@ import { UserDetail } from './_components/user-detail/user-detail.component';
 import { LoginComponent } from './_components/login/login.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { AuthenticationService } from './_services/auth.service';
-
+import { SingUp } from './_components/sing-up/singup.component';
 @NgModule({
   imports:      [ 
     BrowserModule,
@@ -44,9 +44,13 @@ import { AuthenticationService } from './_services/auth.service';
       path: 'login',
       component: LoginComponent
     },
+    {
+      path: 'singup',
+      component: SingUp
+    },
     { path: '**', redirectTo: '' }
   ]) ],
-  declarations: [ AppComponent, PromptComponent, HomeComponent, ResultsComponent, UserDetail, HomeComponent, LoginComponent ],
+  declarations: [ AppComponent, PromptComponent, HomeComponent, ResultsComponent, UserDetail, HomeComponent, LoginComponent, SingUp ],
   bootstrap:    [ AppComponent ],
   providers: [AuthGuard, AuthenticationService, fakeBackendProvider, MockBackend,BaseRequestOptions]
   

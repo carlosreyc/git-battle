@@ -1,0 +1,26 @@
+<div class = "container">
+	<div class="wrapper">
+		<form name="Login_Form" class="form-signin" (ngSubmit)="register()" >       
+		    <h3 class="form-signin-heading">Register!</h3>
+			  
+			  <div>
+              <label>Username:</label>
+			  <input type="text" class="form-control" [(ngModel)]="user.username" name="Username" placeholder="Username" required="" autofocus="" />
+              </div>
+              <div>
+              <label>Password:</label>
+              <input type="password" class="form-control" [(ngModel)]="user.password" name="Password" placeholder="Password" required=""/>
+              </div>
+              <div>
+			  <label>First Name:</label>
+              <input type="text" class="form-control" [(ngModel)]="user.firstName" name="First Name" placeholder="First Name" required="" />
+              </div>
+              <div>      		  
+              <label>Last Name:</label>
+              <input type="text" class="form-control" [(ngModel)]="user.lastName" name="Last Name" placeholder="Last Name" required="" />
+              </div>     
+              
+			  <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit">Submit</button>  			
+		</form>			
+	</div>
+</div>

@@ -6,8 +6,13 @@
 			  
 			  <input type="text" class="form-control" [(ngModel)]="user.username" name="Username" placeholder="Username" required="" autofocus="" />
 			  <input type="password" class="form-control" [(ngModel)]="user.password" name="Password" placeholder="Password" required=""/>     		  
-			 
-			  <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit">Login</button>  			
-		</form>			
+			  <div class="form-group">
+				<button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit">Login</button>
+				<a class="link" [routerLink]="['/singup']">Register </a>	  
+			  </div>
+			  
+			  			
+		</form>
+		  			
 	</div>
-</div>
+</div>	
